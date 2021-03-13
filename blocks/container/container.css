@@ -1,0 +1,7 @@
+.container {
+    max-width: 880px;
+    min-width: 320px;
+    margin: 0 auto;
+    color: white;
+    font-family: Inter, Arial, sans-serif;
+}

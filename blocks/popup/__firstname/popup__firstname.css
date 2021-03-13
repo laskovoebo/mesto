@@ -1,0 +1,18 @@
+.popup__firstname {
+    margin: 0 0 30px;
+    padding-bottom: 13px;
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: left;
+
+}
+
+.popup__firstname:focus {
+    border: none
+}

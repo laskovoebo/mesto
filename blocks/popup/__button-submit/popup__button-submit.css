@@ -1,0 +1,9 @@
+.popup__button-submit {
+    display: block;
+    margin-bottom: 37px;
+    border-radius: 2px;
+}
+
+.popup__button-submit:hover {
+    opacity: 0.8;
+}

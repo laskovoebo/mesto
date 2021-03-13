@@ -1,0 +1,14 @@
+.popup {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.popup__content-box {
+    max-width: 358px;
+    padding: 0 36px 0;
+}
