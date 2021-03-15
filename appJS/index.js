@@ -13,11 +13,11 @@ let popupSubmit = document.querySelector('.popup__button-submit');
 let buttonLikes = document.querySelectorAll('.places__button-like');
 
 function openPopup() {
-    popup.classList.remove('popup__display');
+    popup.classList.remove('popup_display');
 }
 
 function popupClose() {
-    popup.classList.add('popup__display');
+    popup.classList.add('popup_display');
 }
 
 editButton.addEventListener('click', function (event) {
