@@ -33,6 +33,6 @@
 @import "../blocks/popup/__button-submit/popup__button-submit.css";
 @import "../blocks/popup/__button-image/popup__button-image.css";
 @import "../blocks/popup/__button-close/popup__button-close.css";
-@import "../blocks/popup/__visible/popup__visible.css";
+@import "../blocks/popup/__close/popup__close.css";
 @import "../blocks/popup/__button-text/popup__button-text.css";
 @import "../blocks/popup/__content-box/popup__content-box.css";
