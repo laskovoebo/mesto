@@ -1,4 +1,4 @@
-.profile__addButton {
+.profile__submit-button {
     margin: 35px 0 35px auto;
     border: 2px solid white;
     border-radius: 2px;
@@ -11,18 +11,14 @@
 }
 
 @media (max-width: 767px) {
-    .profile__addButton {
+    .profile__submit-button {
         width: 100%;
         margin: 0 auto;
         max-width: 360px;
     }
 }
 
-.profile__addButton:hover {
+.profile__submit-button:hover {
     opacity: 0.6;
 }
 
-.profile__addButton_image {
-    width: 22px;
-    height: 22px;
-}

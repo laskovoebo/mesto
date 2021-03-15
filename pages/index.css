@@ -11,9 +11,10 @@
 @import "../blocks/profile/__subtitle/profile__subtitle.css";
 @import "../blocks/profile/__title/profile__title.css";
 @import "../blocks/profile/__edit-button/profile__edit-button.css";
-@import "../blocks/profile/__avatar/profile__avatar.css";
 @import "../blocks/profile/__paragraph/profile__paragraph.css";
-@import "../blocks/profile/__addButton/profile__addButton.css";
+@import "../blocks/profile/__submit-button/profile__submit-button.css";
+@import "../blocks/profile/__image-edit/profile__image-edit.css";
+@import "../blocks/profile/__image-submit/profile__image-submit.css";
 @import "../blocks/places/__image/places_image.css";
 @import "../blocks/places/places.css";
 @import "../blocks/places/__card/places__card.css";
@@ -32,6 +33,6 @@
 @import "../blocks/popup/__button-submit/popup__button-submit.css";
 @import "../blocks/popup/__button-image/popup__button-image.css";
 @import "../blocks/popup/__button-close/popup__button-close.css";
-@import "../blocks/popup/__display/popup__display.css";
+@import "../blocks/popup/__visible/popup__visible.css";
 @import "../blocks/popup/__button-text/popup__button-text.css";
 @import "../blocks/popup/__content-box/popup__content-box.css";
