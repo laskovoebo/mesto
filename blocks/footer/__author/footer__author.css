@@ -6,3 +6,10 @@
     text-align: left;
     margin: 0;
 }
+
+@media (max-width: 767px) {
+    .footer__author {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

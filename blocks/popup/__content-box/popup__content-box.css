@@ -1,0 +1,10 @@
+.popup__content-box {
+    padding: 0 36px 0;
+}
+
+@media (max-width: 767px) {
+    .popup__content-box {
+        padding: 0 22px 0;
+    }
+
+}

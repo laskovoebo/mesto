@@ -5,3 +5,15 @@
     right: -37px;
 }
 
+.popup__button-close:hover  {
+    opacity: 0.6;
+}
+
+@media (max-width: 767px) {
+    .popup__button-close {
+        width: 26px;
+        display: flex;
+        height: 26px;
+        left: 250px;
+    }
+}

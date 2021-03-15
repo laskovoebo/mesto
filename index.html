@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="pages/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
 </head>
 <body class="root">
@@ -14,18 +15,18 @@
         <a href="" class="header__logo"></a>
     </header>
     <section class="profile">
+        <img src="images/image-profile.jpg" alt="" class="profile__image">
         <div class="profile__info">
-            <img src="images/image-profile.jpg" alt="" class="profile__image">
             <div class="profile__paragraph">
                 <h2 class="profile__title">Жак-Ив Кусто</h2>
                 <p class="profile__subtitle">Исследователь океана</p>
             </div>
             <a href="" class="profile__edit-button">
-            <img src="images/Edit-Button.png" alt="" class="profile__edit-button_image">
+                <img src="images/edit-button-vector.svg" alt="" class="profile__edit-button_image">
             </a>
         </div>
         <a href="" class="profile__addButton">
-            <img src="images/Add-Button.svg" alt="" class="profile__addButton-image">
+            <img src="images/plus.svg" alt="" class="profile__addButton_image">
         </a>
     </section>
     <section class="places">
@@ -87,19 +88,19 @@
     <footer class="footer">
         <h2 class="footer__author">© 2020 Илья Матвеев</h2>
     </footer>
-   <div class="popup popup__display">
+    <div class="popup popup__display">
         <div class="popup__overlay"></div>
         <div class="popup__container">
             <div class="popup__content-box">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <label for="firstname">
-                <input type="text" class="popup__firstname" id="firstname" value="Жак-Ив Кусто">
-            </label>
-            <label for="paragraph">
-                <input type="text" class="popup__paragraph" id="paragraph" value="Исследователь океана">
-            </label>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <label for="firstname">
+                    <input type="text" class="popup__firstname" id="firstname" value="Жак-Ив Кусто">
+                </label>
+                <label for="paragraph">
+                    <input type="text" class="popup__paragraph" id="paragraph" value="Исследователь океана">
+                </label>
                 <a href="" class="popup__button-submit">
-                    <img src="images/Submit-Button.svg" alt="" class="popup__button-image">
+                    <p class="popup__button-text">Сохранить</p>
                 </a>
                 <a href="" class="popup__button-close">
                     <img src="images/Close-Icon.svg" alt="" class="popup__button-image_close">

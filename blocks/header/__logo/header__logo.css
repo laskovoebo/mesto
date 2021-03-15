@@ -2,5 +2,15 @@
     background-image: url("../../../images/logo-header.svg");
     width: 142px;
     height: 33px;
-    background-repeat: no-repeat;
+    display: block;
+    margin-bottom: 41px;
+    background-size: 100%;
+}
+
+@media (max-width: 767px) {
+    .header__logo {
+        width: 104px;
+        height: 24px;
+        margin-bottom: 31px;
+    }
 }

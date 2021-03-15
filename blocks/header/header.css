@@ -1,5 +1,11 @@
 .header {
     flex-direction: column;
-    margin: 45px 0 ;
+    margin: 45px 0 40px;
     border-bottom: 1px solid rgba(84, 84, 84, .7);
+}
+
+@media (max-width: 767px) {
+    .header {
+        margin: 28px 0 42px;
+    }
 }

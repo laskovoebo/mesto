@@ -1,7 +1,13 @@
 .popup__button-submit {
-    display: block;
-    margin-bottom: 37px;
+    display: flex;
     border-radius: 2px;
+    margin-bottom: 37px;
+    max-width: 358px;
+    background-color: black;
+    height: 50px;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
 }
 
 .popup__button-submit:hover {

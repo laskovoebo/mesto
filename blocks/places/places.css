@@ -6,3 +6,18 @@
     color: black;
     margin-top: 51px;
 }
+
+/*@media (max-width: 879px) {*/
+/*    .places {*/
+/*        grid-template-rows: repeat(3, 1fr);*/
+/*        grid-template-columns: repeat(2, auto);*/
+/*    }*/
+/*}*/
+
+@media (max-width: 767px) {
+    .places {
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: repeat(1, auto);
+        margin: 36px 19px 0;
+    }
+}
