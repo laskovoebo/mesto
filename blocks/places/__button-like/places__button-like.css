@@ -1,9 +1,13 @@
 .places__button-like {
-    background-image: url("../../../images/like-button.svg");
     width: 22px;
     height: 19px;
     background-repeat: no-repeat;
     display: block;
+    box-sizing: content-box;
+    padding: 0;
+    outline: none;
+    border: none;
+    background-color: white;
 }
 
 .places__button-like:hover {
@@ -18,9 +22,4 @@
 .places__button-like:focus {
     outline: none;
     border: none;
-}
-
-.places__button-like_active {
-    background-image: url("../../../images/like-button-active.svg");
-    background-repeat: no-repeat;
 }

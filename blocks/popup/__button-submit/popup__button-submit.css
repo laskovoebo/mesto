@@ -2,12 +2,15 @@
     display: flex;
     border-radius: 2px;
     margin-bottom: 37px;
-    max-width: 358px;
+    width: 100%;
     background-color: black;
     height: 50px;
     text-decoration: none;
     color: white;
     justify-content: center;
+    border: none;
+    padding: 0;
+    align-items: center;
 }
 
 .popup__button-submit:hover {

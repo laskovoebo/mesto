@@ -2,7 +2,7 @@ let editButton = document.querySelector('.profile__edit-button');
 
 let popup = document.querySelector('.popup');
 
-let closePopup = document.querySelector('.popup__button-close');
+let buttonClosePopup = document.querySelector('.popup__button-close');
 
 let profileTitle = document.querySelector('.profile__title');
 
@@ -12,11 +12,11 @@ let popupSubmit = document.querySelector('.popup__button-submit');
 
 let buttonLikes = document.querySelectorAll('.places__button-like');
 
-function openPopup() {
+function openPopup () {
     popup.classList.remove('popup_display');
 }
 
-function popupClose() {
+function closePopup() {
     popup.classList.add('popup_display');
 }
 
@@ -25,19 +25,24 @@ editButton.addEventListener('click', function (event) {
     openPopup();
 });
 
-closePopup.addEventListener('click', function (event) {
+buttonClosePopup.addEventListener('click', function (event) {
     event.preventDefault();
-    popupClose()
+    closePopup()
 });
 
-popupSubmit.addEventListener('click', function (event) {
-    event.preventDefault();
-    let fistName = document.querySelector('.popup__firstname').value;
-    let popupParagraph = document.querySelector('.popup__paragraph').value;
-    profileTitle.textContent = fistName;
-    profileSubtitle.textContent = popupParagraph;
-    popupClose();
-});
+function submitPopup (e) {
+    e.preventDefault();
+    let firstName = document.querySelector('.popup__input_firstname');
+    let popupParagraph = document.querySelector('.popup__input_paragraph');
+    profileTitle.textContent = firstName.value;
+    profileSubtitle.textContent = popupParagraph.value;
+    closePopup();
+}
+
+popupSubmit.addEventListener('click', submitPopup);
+
+//Не особо понятно, как себя должны тогда вести лайки на странице, если они ставятся и убираются по нажатию
+// Или по нажатию они должны  просто ставиться без возможности их убрать??
 
 const cardLikes = Array(6).fill(false);
 

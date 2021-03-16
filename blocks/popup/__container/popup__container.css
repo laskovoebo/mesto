@@ -4,8 +4,8 @@
     flex-direction: column;
     background-color: white;
     max-width: 430px;
-    top: 195px;
     border-radius: 10px;
+    align-self: center;
 }
 
 @media (max-width: 767px) {

@@ -3,6 +3,8 @@
     display: block;
     top: -40px;
     right: -37px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
 }
 
 .popup__button-close:hover  {
