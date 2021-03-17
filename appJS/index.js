@@ -12,57 +12,30 @@ let popupSubmit = document.querySelector('.popup__button-submit');
 
 let buttonLikes = document.querySelectorAll('.places__button-like');
 
+let firstName = document.querySelector('.popup__input-firstname');
+
+let popupParagraph = document.querySelector('.popup__input-paragraph');
+
 function openPopup () {
     popup.classList.remove('popup_display');
+    firstName.value =  profileTitle.textContent;
+    popupParagraph.value = profileSubtitle.textContent;
 }
 
 function closePopup() {
     popup.classList.add('popup_display');
 }
 
-editButton.addEventListener('click', function (event) {
+function popupSubmitHandler (event) {
     event.preventDefault();
-    openPopup();
-});
-
-buttonClosePopup.addEventListener('click', function (event) {
-    event.preventDefault();
-    closePopup()
-});
-
-function submitPopup (e) {
-    e.preventDefault();
-    let firstName = document.querySelector('.popup__input_firstname');
-    let popupParagraph = document.querySelector('.popup__input_paragraph');
     profileTitle.textContent = firstName.value;
     profileSubtitle.textContent = popupParagraph.value;
     closePopup();
 }
 
-popupSubmit.addEventListener('click', submitPopup);
+editButton.addEventListener('click', openPopup);
 
-//Не особо понятно, как себя должны тогда вести лайки на странице, если они ставятся и убираются по нажатию
-// Или по нажатию они должны  просто ставиться без возможности их убрать??
+buttonClosePopup.addEventListener('click', closePopup);
 
-const cardLikes = Array(6).fill(false);
+document.formPopup.addEventListener('submit', popupSubmitHandler);
 
-/*
-for ( let i = 0; i < buttonLikes.length ; i++ ) {
-    let likeActive = buttonLikes[i];
-    likeActive.addEventListener('click', function (event) {
-        event.preventDefault();
-        cardLikes[i] = !cardLikes[i];
-        const img = likeActive.querySelector('.places__button-image');
-        img.src = cardLikes[i] ? 'images/like-button-active.svg' : 'images/like-button.svg';
-    });
-}
-*/
-
-buttonLikes.forEach((buttonLike, i) =>
-    buttonLike.addEventListener('click', e => {
-        e.preventDefault();
-        cardLikes[i] = !cardLikes[i];
-        const img = buttonLike.querySelector('.places__button-image');
-        img.src = cardLikes[i] ? 'images/like-button-active.svg' : 'images/like-button.svg';
-    }),
-);

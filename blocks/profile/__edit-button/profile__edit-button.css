@@ -8,7 +8,8 @@
     margin-top: 15px;
     border: 1px solid white;
     box-sizing: border-box;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
 }
 
 @media (max-width: 767px) {

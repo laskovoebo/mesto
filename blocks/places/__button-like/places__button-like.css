@@ -8,6 +8,7 @@
     outline: none;
     border: none;
     background-color: white;
+    cursor: pointer;
 }
 
 .places__button-like:hover {

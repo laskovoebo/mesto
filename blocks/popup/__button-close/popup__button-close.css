@@ -5,6 +5,7 @@
     right: -37px;
     background-color: rgba(0, 0, 0, 0);
     border: none;
+    cursor: pointer;
 }
 
 .popup__button-close:hover  {

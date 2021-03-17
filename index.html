@@ -23,11 +23,11 @@
                 <h1 class="profile__title">Жак-Ив Кусто</h1>
                 <p class="profile__subtitle">Исследователь океана</p>
             </div>
-            <button type="button" class="profile__edit-button">
+            <button type="submit" class="profile__edit-button">
                 <img src="images/edit-button-vector.svg" alt="Редактировать профиль" class="profile__image-edit">
             </button>
         </div>
-        <button type="button" class="profile__submit-button">
+        <button type="submit" class="profile__submit-button">
             <img src="images/plus.svg" alt="Добавить изображение" class="profile__image-submit">
         </button>
     </section>
@@ -36,7 +36,7 @@
             <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="Фото" class="places__image">
             <div class="places__content">
                 <h2 class="places__title">Карачаевск</h2>
-                <button type="button" class="places__button-like">
+                <button type="submit" class="places__button-like">
                     <img src="images/like-button.svg" alt="Нравится" class="places__button-image">
                 </button>
             </div>
@@ -45,7 +45,7 @@
             <img src="images/kirill-pershin-1404681-unsplash.jpg" alt="Фото" class="places__image">
             <div class="places__content">
                 <h2 class="places__title">Гора Эльбрус</h2>
-                <button type="button" class="places__button-like">
+                <button type="submit" class="places__button-like">
                     <img src="images/like-button.svg" alt="Нравится" class="places__button-image">
                 </button>
             </div>
@@ -54,7 +54,7 @@
             <img src="images/kirill-pershin-1556355-unsplash.jpg" alt="Фото" class="places__image">
             <div class="places__content">
                 <h2 class="places__title">Домбай</h2>
-                <button type="button" class="places__button-like">
+                <button type="submit" class="places__button-like">
                     <img src="images/like-button.svg" alt="Нравится" class="places__button-image">
                 </button>
             </div>
@@ -63,7 +63,7 @@
             <img src="images/kirill-pershin-1404681-unsplash.jpg" alt="Фото" class="places__image">
             <div class="places__content">
                 <h2 class="places__title">Гора Эльбрус</h2>
-                <button type="button" class="places__button-like">
+                <button type="submit" class="places__button-like">
                     <img src="images/like-button.svg" alt="Нравится" class="places__button-image">
                 </button>
             </div>
@@ -72,7 +72,7 @@
             <img src="images/kirill-pershin-1556355-unsplash.jpg" alt="Фото" class="places__image">
             <div class="places__content">
                 <h2 class="places__title">Домбай</h2>
-                <button type="button" class="places__button-like">
+                <button type="submit" class="places__button-like">
                     <img src="images/like-button.svg" alt="Нравится" class="places__button-image">
                 </button>
             </div>
@@ -81,7 +81,7 @@
             <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="Фото" class="places__image">
             <div class="places__content">
                 <h2 class="places__title">Карачаево-Черкессия</h2>
-                <button type="button" class="places__button-like">
+                <button type="submit" class="places__button-like">
                     <img src="images/like-button.svg" alt="Нравится" class="places__button-image">
                 </button>
             </div>
@@ -89,22 +89,20 @@
     </section>
     </main>
     <footer class="footer">
-        <h2 class="footer__author">© 2020 Илья Матвеев</h2>
+        <p class="footer__author">© 2020 Илья Матвеев</p>
     </footer>
     <div class="popup popup_display">
         <div class="popup__overlay"></div>
         <div class="popup__container">
             <form class="popup__content-box" name="formPopup">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                    <input type="text" class="popup__input popup__input_firstname"
+                    <input type="text" class="popup__input-firstname"
                            id="firstname" value="Жак-Ив Кусто" name="inputFirstnamePopup">
-                    <input type="text" class="popup__input popup__input_paragraph"
+                    <input type="text" class="popup__input popup__input-paragraph"
                            id="paragraph" value="Исследователь океана" name="inputParagraphPopup">
-                <button type="button" class="popup__button-submit">
-                    <p class="popup__button-text">Сохранить</p>
-                </button>
+                <button type="submit" class="popup__button-submit">Сохранить</button>
             </form>
-            <button type="button" class="popup__button-close">
+            <button class="popup__button-close">
                 <img src="images/Close-Icon.svg" alt="Закрыть" class="popup__image-close">
             </button>
         </div>
