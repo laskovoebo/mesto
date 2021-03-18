@@ -28,8 +28,6 @@
 @import "../blocks/popup/__container/popup__container.css";
 @import "../blocks/popup/__title/popup__title.css";
 @import "../blocks/popup/__overlay/popup__overlay.css";
-@import "../blocks/popup/__input-firstname/popup__input-firstname.css";
-@import "../blocks/popup/__input-paragraph/popup__input-paragraph.css";
 @import "../blocks/popup/__button-submit/popup__button-submit.css";
 @import "../blocks/popup/__button-image/popup__button-image.css";
 @import "../blocks/popup/__button-close/popup__button-close.css";
