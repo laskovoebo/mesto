@@ -1,7 +1,3 @@
-.popup_display{
-    display: flex;
-}
-
-.popup_display2{
+.popup.visible {
     display: flex;
 }

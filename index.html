@@ -31,80 +31,7 @@
                 <img src="images/plus.svg" alt="Добавить изображение" class="profile__image-submit">
             </button>
         </section>
-        <section class="places">
-            <div class="places__card">
-                <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="Фото" class="places__image">
-                <div class="places__content">
-                    <h2 class="places__title">Карачаевск</h2>
-                    <button class="places__button-like">
-                        <img src="images/like-button.svg" alt="Нравится" class="places__button-image">
-                    </button>
-                    <button class="places__remove-card">
-                        <img src="images/Trash.svg" alt="Удалить карточку" class="places__image-remove">
-                    </button>
-                </div>
-            </div>
-            <div class="places__card">
-                <img src="images/kirill-pershin-1404681-unsplash.jpg" alt="Фото" class="places__image">
-                <div class="places__content">
-                    <h2 class="places__title">Гора Эльбрус</h2>
-                    <button class="places__button-like">
-                        <img src="images/like-button.svg" alt="Нравится" class="places__button-image">
-                    </button>
-                    <button class="places__remove-card">
-                        <img src="images/Trash.svg" alt="Удалить карточку" class="places__image-remove">
-                    </button>
-                </div>
-            </div>
-            <div class="places__card">
-                <img src="images/kirill-pershin-1556355-unsplash.jpg" alt="Фото" class="places__image">
-                <div class="places__content">
-                    <h2 class="places__title">Домбай</h2>
-                    <button class="places__button-like">
-                        <img src="images/like-button.svg" alt="Нравится" class="places__button-image">
-                    </button>
-                    <button class="places__remove-card">
-                        <img src="images/Trash.svg" alt="Удалить карточку" class="places__image-remove">
-                    </button>
-                </div>
-            </div>
-            <div class="places__card">
-                <img src="images/kirill-pershin-1404681-unsplash.jpg" alt="Фото" class="places__image">
-                <div class="places__content">
-                    <h2 class="places__title">Гора Эльбрус</h2>
-                    <button class="places__button-like">
-                        <img src="images/like-button.svg" alt="Нравится" class="places__button-image">
-                    </button>
-                    <button class="places__remove-card">
-                        <img src="images/Trash.svg" alt="Удалить карточку" class="places__image-remove">
-                    </button>
-                </div>
-            </div>
-            <div class="places__card">
-                <img src="images/kirill-pershin-1556355-unsplash.jpg" alt="Фото" class="places__image">
-                <div class="places__content">
-                    <h2 class="places__title">Домбай</h2>
-                    <button class="places__button-like">
-                        <img src="images/like-button.svg" alt="Нравится" class="places__button-image">
-                    </button>
-                    <button class="places__remove-card">
-                        <img src="images/Trash.svg" alt="Удалить карточку" class="places__image-remove">
-                    </button>
-                </div>
-            </div>
-            <div class="places__card">
-                <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="Фото" class="places__image">
-                <div class="places__content">
-                    <h2 class="places__title">Карачаево-Черкессия</h2>
-                    <button class="places__button-like">
-                        <img src="images/like-button.svg" alt="Нравится" class="places__button-image">
-                    </button>
-                    <button class="places__remove-card">
-                        <img src="images/Trash.svg" alt="Удалить карточку" class="places__image-remove">
-                    </button>
-                </div>
-            </div>
-        </section>
+        <section class="places"></section>
     </main>
     <footer class="footer">
         <p class="footer__author">© 2020 Илья Матвеев</p>
@@ -112,7 +39,7 @@
     <div class="popup" id="profilePopup">
         <div class="popup__overlay"></div>
         <div class="popup__container">
-            <form class="popup__content-box" name="formPopup">
+            <form class="popup__content-box" name="formPopup" id="formProfile">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <input type="text" class="popup__input popup__input_text_firstname"
                        id="firstname" value="Жак-Ив Кусто" name="inputFirstnamePopup">
@@ -125,18 +52,18 @@
             </button>
         </div>
     </div>
-    <div class="popup2" id="cardsPopup">
-        <div class="popup__overlay2"></div>
-        <div class="popup__container2">
-            <form class="popup__content-box2" name="formPopup">
+    <div class="popup" id="cardsPopup">
+        <div class="popup__overlay"></div>
+        <div class="popup__container">
+            <form class="popup__content-box" name="formPopup" id="formCards">
                 <h2 class="popup__title">Новое Место</h2>
-                <input type="text" class="popup__input2 popup__input_text_firstname"
-                       id="nameCard" value="" name="inputNamePopup">
-                <input type="text" class="popup__input2 popup__input_text_paragraph"
-                       id="linkCard" value="" name="inputLinkPopup">
-                <button type="submit" class="popup__button-submit2">Сохранить</button>
+                <input type="text" class="popup__input popup__input_text_name"
+                       id="nameCard" value="" name="inputNamePopup" placeholder="Название">
+                <input type="text" class="popup__input popup__input_text_link"
+                       id="linkCard" value="" name="inputLinkPopup" placeholder="Ссылка на картинку">
+                <button type="submit" class="popup__button-submit" id="saveCards">Сохранить</button>
             </form>
-            <button class="popup__button-close2" id="closeCards">
+            <button class="popup__button-close" id="closeCards">
                 <img src="images/Close-Icon.svg" alt="Закрыть" class="popup__image-close">
             </button>
         </div>
@@ -151,6 +78,20 @@
 <!--        </div>-->
 <!--    </div>-->
 </div>
+<template class="places__template">
+        <div class="places__card">
+            <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="Фото" class="places__image">
+            <div class="places__content">
+                <h2 class="places__title">Карачаевск</h2>
+                <button class="places__button-like">
+                    <img src="images/like-button.svg" alt="Нравится" class="places__button-image">
+                </button>
+                <button class="places__remove-card">
+                    <img src="images/Trash.svg" alt="Удалить карточку" class="places__image-remove">
+                </button>
+            </div>
+        </div>
+</template>
 <script src="appJS/index.js"></script>
 </body>
 </html>
