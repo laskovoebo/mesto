@@ -20,3 +20,26 @@
         left: 250px;
     }
 }
+
+.popup__button-close2 {
+    position: absolute;
+    display: block;
+    top: -40px;
+    right: -37px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    cursor: pointer;
+}
+
+.popup__button-close2:hover  {
+    opacity: 0.6;
+}
+
+@media (max-width: 767px) {
+    .popup__button-close2 {
+        width: 26px;
+        display: flex;
+        height: 26px;
+        left: 250px;
+    }
+}

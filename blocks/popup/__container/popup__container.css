@@ -13,3 +13,19 @@
         margin: 0 19px 0;
     }
 }
+
+.popup__container2 {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    max-width: 430px;
+    border-radius: 10px;
+    align-self: center;
+}
+
+@media (max-width: 767px) {
+    .popup__container2 {
+        margin: 0 19px 0;
+    }
+}
