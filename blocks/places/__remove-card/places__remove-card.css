@@ -1,0 +1,14 @@
+.places__remove-card {
+    width: 18px;
+    height: 19px;
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    top: 18px;
+    right: 15px;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+}

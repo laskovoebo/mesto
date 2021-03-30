@@ -3,6 +3,7 @@
     background-color: white;
     overflow: hidden;
     display: block;
+    position: relative;
 }
 
 @media (max-width: 767px) {

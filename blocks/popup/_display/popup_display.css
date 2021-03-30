@@ -1,3 +1,7 @@
 .popup_display{
-    display: none;
+    display: flex;
+}
+
+.popup_display2{
+    display: flex;
 }
