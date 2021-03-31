@@ -3,6 +3,7 @@ let buttonLikes = document.querySelectorAll('.places__button-like');
 let editButton = document.querySelector('.profile__edit-button');
 let popupProfile = document.querySelector('#profilePopup');
 let buttonCloseProfile = document.querySelector('#closeProfile');
+const profileForm = document.querySelector('#formProfile')
 let profileTitle = document.querySelector('.profile__title');
 let profileSubtitle = document.querySelector('.profile__subtitle');
 let firstName = document.querySelector('.popup__input_text_firstname');
@@ -14,6 +15,7 @@ const formCards = document.querySelector('#formCards');
 const buttonSaveCards = document.querySelector('#saveCards');
 const inputNameCards = document.querySelector('#nameCard');
 const inputLinkCards = document.querySelector('#linkCard');
+const buttonDeleteCards = document.querySelector('.places__remove-card')
 const openPopupCards = document.querySelector('.profile__submit-button');
 const places = document.querySelector('.places');
 const initialCards = [
@@ -42,6 +44,12 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
+//Popup открытие карточек фулскрином
+const popupImageCard = document.querySelector('#imageCardFullscreen');
+const imageCard = popupImageCard.querySelector('.popup__image-card');
+const placesImage = document.querySelector('.places__image');
+const buttonImageClose = document.querySelector('#imageClose');
+const imageName = document.querySelector('.popup__image-name');
 
 function openProfile () {
     popupProfile.classList.add('visible');
@@ -59,20 +67,9 @@ function closeProfile() {
 
 function closeCards() {
     popupCards.classList.remove('visible');
+    inputLinkCards.value = '';
+    inputNameCards.value = '';
 }
-
-const cardLikes = Array(6).fill(false);
-
-buttonLikes.forEach((buttonLike, i) =>
-    buttonLike.addEventListener('click', e => {
-        e.preventDefault();
-        cardLikes[i] = !cardLikes[i];
-        const img = buttonLike.querySelector('.places__button-image');
-        img.src = cardLikes[i] ? 'images/like-button-active.svg' : 'images/like-button.svg';
-    }),
-);
-
-
 
 function popupSubmitHandler (event) {
     event.preventDefault();
@@ -109,15 +106,38 @@ function formSubmitHandler(e) {
     closeCards()
 }
 
+function openPopupImageCard() {
+    popupImageCard.classList.add('visible')
+}
+
+function closePopupImageCard() {
+    popupImageCard.classList.remove('visible')
+}
+
 editButton.addEventListener('click', openProfile);
 openPopupCards.addEventListener('click', openCards);
 
 buttonCloseProfile.addEventListener('click', closeProfile);
 buttonCloseCards.addEventListener('click', closeCards);
+buttonImageClose.addEventListener('click', closePopupImageCard)
 
-// document.formPopup.addEventListener('submit', popupSubmitHandler);
+profileForm.addEventListener('submit', popupSubmitHandler);
 
 formCards.addEventListener('submit', formSubmitHandler)
+
+places.addEventListener('click', e => {
+    const button = e.target;
+    if (button.classList.contains('places__image-remove')){
+        button.closest('.places__card').remove();
+    }
+    if (button.classList.contains('places__button-image')){
+        button.src = 'images/like-button-active.svg';
+    }
+    if (button.classList.contains('places__image')){
+        openPopupImageCard()
+    }
+})
+
 
 renderCards();
 
