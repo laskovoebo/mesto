@@ -51,24 +51,32 @@ const placesImage = document.querySelector('.places__image');
 const buttonImageClose = document.querySelector('#imageClose');
 const imageName = document.querySelector('.popup__image-name');
 
+function openPopup(popup) {
+    popup && popup.classList.add('popup_opened');
+}
+
+function closePopup(popup) {
+    popup && popup.classList.remove('popup_opened');
+}
+
 function openProfile () {
-    popupProfile.classList.add('popup_opened');
     firstName.value = profileTitle.textContent;
     popupParagraph.value = profileSubtitle.textContent;
+    openPopup(popupProfile);
 }
 
 function openCards() {
-    popupCards.classList.add('popup_opened');
+    openPopup(popupCards);
 }
 
 function closeProfile() {
-    popupProfile.classList.remove('popup_opened');
+    closePopup(popupProfile);
 }
 
 function closeCards() {
-    popupCards.classList.remove('popup_opened');
     inputLinkCards.value = '';
     inputNameCards.value = '';
+    closePopup(popupCards);
 }
 
 function popupSubmitHandler (event) {
