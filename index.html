@@ -37,14 +37,13 @@
         <p class="footer__author">© 2020 Илья Матвеев</p>
     </footer>
     <div class="popup" id="profilePopup">
-        <div class="popup__overlay"></div>
         <div class="popup__container">
             <form class="popup__content-box" name="formPopup" id="formProfile">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <input type="text" class="popup__input popup__input_text_firstname"
-                       id="firstname" value="Жак-Ив Кусто" name="inputFirstnamePopup">
+                       id="firstname" value="Жак-Ив Кусто" name="inputFirstnamePopup" placeholder="Имя">
                 <input type="text" class="popup__input popup__input_text_paragraph"
-                       id="paragraph" value="Исследователь океана" name="inputParagraphPopup">
+                       id="paragraph" value="Исследователь океана" name="inputParagraphPopup" placeholder="Информация">
                 <button type="submit" class="popup__button-submit">Сохранить</button>
             </form>
             <button class="popup__button-close" id="closeProfile">
@@ -53,7 +52,6 @@
         </div>
     </div>
     <div class="popup" id="cardsPopup">
-        <div class="popup__overlay"></div>
         <div class="popup__container">
             <form class="popup__content-box" name="formPopup" id="formCards">
                 <h2 class="popup__title">Новое Место</h2>
@@ -69,8 +67,7 @@
         </div>
     </div>
     <div class="popup" id="imageCardFullscreen">
-        <div class="popup__overlay"></div>
-        <div class="popup__container">
+        <div class="popup__container_image">
             <img src=" " alt="Изображение места" class="popup__image-card">
             <p class="popup__image-name"></p>
             <button class="popup__button-close" id="imageClose">

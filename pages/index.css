@@ -28,10 +28,10 @@
 @import "../blocks/popup/popup.css";
 @import "../blocks/popup/__container/popup__container.css";
 @import "../blocks/popup/__title/popup__title.css";
-@import "../blocks/popup/__overlay/popup__overlay.css";
 @import "../blocks/popup/__button-submit/popup__button-submit.css";
 @import "../blocks/popup/__button-image/popup__button-image.css";
 @import "../blocks/popup/__button-close/popup__button-close.css";
 @import "../blocks/popup/_display/popup_display.css";
 @import "../blocks/popup/__content-box/popup__content-box.css";
 @import "../blocks/popup/__input/popup__input.css";
+@import "../blocks/popup/_image/popup__container_image.css";

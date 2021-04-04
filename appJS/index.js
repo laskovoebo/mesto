@@ -1,4 +1,4 @@
-let buttonLikes = document.querySelectorAll('.places__button-like');
+const buttonLikes = document.querySelectorAll('.places__button-like');
 //Popup для изменения данных профиля
 let editButton = document.querySelector('.profile__edit-button');
 let popupProfile = document.querySelector('#profilePopup');
@@ -52,21 +52,21 @@ const buttonImageClose = document.querySelector('#imageClose');
 const imageName = document.querySelector('.popup__image-name');
 
 function openProfile () {
-    popupProfile.classList.add('visible');
+    popupProfile.classList.add('popup_opened');
     firstName.value = profileTitle.textContent;
     popupParagraph.value = profileSubtitle.textContent;
 }
 
 function openCards() {
-    popupCards.classList.add('visible');
+    popupCards.classList.add('popup_opened');
 }
 
 function closeProfile() {
-    popupProfile.classList.remove('visible');
+    popupProfile.classList.remove('popup_opened');
 }
 
 function closeCards() {
-    popupCards.classList.remove('visible');
+    popupCards.classList.remove('popup_opened');
     inputLinkCards.value = '';
     inputNameCards.value = '';
 }
@@ -78,19 +78,34 @@ function popupSubmitHandler (event) {
     closeProfile();
 }
 
-function renderCard({ name, link }) {
-    const placesTemplate = document.querySelector('.places__template').content.querySelector('.places__card');
-    const placesCards = placesTemplate.cloneNode(true);
-    const cardName = placesCards.querySelector('.places__title');
-    const cardImage = placesCards.querySelector('.places__image');
+function createCard({ name, link }) {
+    const placesTemplate = document.querySelector('.places__template')
+      .content.querySelector('.places__card');
+    const cardWrapper = placesTemplate.cloneNode(true);
+    const cardName = cardWrapper.querySelector('.places__title');
+    const cardImage = cardWrapper.querySelector('.places__image');
+    const likeButton = cardWrapper.querySelector('.places__button-image');
+    const imageContainer = cardWrapper.querySelector('.places__image');
+    const closeButton = cardWrapper.querySelector('.places__image-remove');
+    likeButton.addEventListener('click',
+      () => likeButton.src = 'images/like-button-active.svg');
+    imageContainer.addEventListener('click', () => {
+        imageCard.src = link;
+        imageName.textContent = name;
+        openPopupImageCard();
+    });
+    closeButton.addEventListener('click', () => cardWrapper.remove());
     cardName.textContent = name;
     cardImage.src = link;
+    return cardWrapper;
+}
 
-    places.append(placesCards);
+function renderCard(wrapper, data) {
+    wrapper.prepend(createCard(data));
 }
 
 function renderCards() {
-    initialCards.forEach(renderCard);
+    initialCards.forEach((card) => renderCard(places, card));
 }
 
 function formSubmitHandler(e) {
@@ -102,16 +117,16 @@ function formSubmitHandler(e) {
         link,
     };
     initialCards.push(newCard);
-    renderCard(newCard);
+    renderCard(places, newCard);
     closeCards()
 }
 
 function openPopupImageCard() {
-    popupImageCard.classList.add('visible')
+    popupImageCard.classList.add('popup_opened')
 }
 
 function closePopupImageCard() {
-    popupImageCard.classList.remove('visible')
+    popupImageCard.classList.remove('popup_opened')
 }
 
 editButton.addEventListener('click', openProfile);
@@ -119,25 +134,11 @@ openPopupCards.addEventListener('click', openCards);
 
 buttonCloseProfile.addEventListener('click', closeProfile);
 buttonCloseCards.addEventListener('click', closeCards);
-buttonImageClose.addEventListener('click', closePopupImageCard)
+buttonImageClose.addEventListener('click', closePopupImageCard);
 
 profileForm.addEventListener('submit', popupSubmitHandler);
 
-formCards.addEventListener('submit', formSubmitHandler)
-
-places.addEventListener('click', e => {
-    const button = e.target;
-    if (button.classList.contains('places__image-remove')){
-        button.closest('.places__card').remove();
-    }
-    if (button.classList.contains('places__button-image')){
-        button.src = 'images/like-button-active.svg';
-    }
-    if (button.classList.contains('places__image')){
-        openPopupImageCard()
-    }
-})
-
+formCards.addEventListener('submit', formSubmitHandler);
 
 renderCards();
 
