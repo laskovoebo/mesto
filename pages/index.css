@@ -34,4 +34,4 @@
 @import "../blocks/popup/_display/popup_display.css";
 @import "../blocks/popup/__content-box/popup__content-box.css";
 @import "../blocks/popup/__input/popup__input.css";
-@import "../blocks/popup/_image/popup__container_image.css";
+@import "../blocks/popup/__container-image/popup__container_image.css";
