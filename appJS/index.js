@@ -95,8 +95,12 @@ function createCard({ name, link }) {
     const likeButton = cardWrapper.querySelector('.places__button-image');
     const imageContainer = cardWrapper.querySelector('.places__image');
     const closeButton = cardWrapper.querySelector('.places__image-remove');
+    let liked = false;
     likeButton.addEventListener('click',
-      () => likeButton.src = 'images/like-button-active.svg');
+      () => {
+        liked = !liked;
+        likeButton.src = liked ? 'images/like-button-active.svg' : 'images/like-button.svg';
+      });
     imageContainer.addEventListener('click', () => {
         imageCard.src = link;
         imageName.textContent = name;
