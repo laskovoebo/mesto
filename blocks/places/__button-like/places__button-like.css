@@ -9,6 +9,12 @@
     border: none;
     background-color: white;
     cursor: pointer;
+    background-image: url("../../../images/like-button.svg");
+    background-size: cover;
+}
+
+.places__button-like.active {
+    background-image: url("../../../images/like-button-active.svg");
 }
 
 .places__button-like:hover {
