@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mesto</title>
 </head>
-<!--Я тоже рад что вы снова проверяете мою работу :) -->
 <body class="root">
 <div class="container">
     <header class="header">
@@ -38,13 +37,23 @@
     </footer>
     <div class="popup" id="profilePopup">
         <div class="popup__container">
-            <form class="popup__content-box" name="formPopup" id="formProfile">
+            <form class="popup__form popup__content-box" name="formPopup" id="formProfile" novalidate>
+                <fieldset class="popup__set">
                 <h2 class="popup__title">Редактировать профиль</h2>
+                    <label class="popup__field">
                 <input type="text" class="popup__input popup__input_text_firstname"
-                       id="firstname" value="Жак-Ив Кусто" name="inputFirstnamePopup" placeholder="Имя">
+                       id="firstname-input" value="Жак-Ив Кусто" name="inputFirstnamePopup"
+                       placeholder="Имя" required maxlength="40" minlength="2">
+                <span class="popup__error-message firstname-input-error"></span>
+                    </label>
+                    <label class="popup__field">
                 <input type="text" class="popup__input popup__input_text_paragraph"
-                       id="paragraph" value="Исследователь океана" name="inputParagraphPopup" placeholder="Информация">
+                       id="paragraph-input" value="Исследователь океана" name="inputParagraphPopup"
+                       placeholder="Информация" required maxlength="200" minlength="2">
+                <span class="popup__error-message paragraph-input-error"></span>
+                    </label>
                 <button type="submit" class="popup__button-submit">Сохранить</button>
+                </fieldset>
             </form>
             <button class="popup__button-close" id="closeProfile">
                 <img src="images/Close-Icon.svg" alt="Закрыть" class="popup__image-close">
@@ -53,14 +62,23 @@
     </div>
     <div class="popup" id="cardsPopup">
         <div class="popup__container">
-            <form class="popup__content-box" name="formPopup" id="formCards">
+            <form class="popup__form popup__content-box" name="formPopup" id="formCards" novalidate>
+                <fieldset class="popup__set">
                 <h2 class="popup__title">Новое Место</h2>
+                    <label class="popup__field">
                 <input type="text" class="popup__input popup__input_text_name"
-                       id="nameCard" value="" name="inputNamePopup" placeholder="Название">
-                <input type="text" class="popup__input popup__input_text_link"
-                       id="linkCard" value="" name="inputLinkPopup" placeholder="Ссылка на картинку">
+                       id="nameCard-input" value="" name="inputNamePopup" placeholder="Название" required>
+                <span class="popup__error-message nameCard-input-error popup__input-error_active"></span>
+                    </label>
+                    <label class="popup__field">
+                <input type="url" class="popup__input popup__input_text_link"
+                       id="linkCard-input" value="" name="inputLinkPopup" placeholder="Ссылка на картинку" required>
+                <span class="popup__error-message linkCard-input-error"></span>
+                    </label>
                 <button type="submit" class="popup__button-submit" id="saveCards">Сохранить</button>
+                </fieldset>
             </form>
+
             <button class="popup__button-close" id="closeCards">
                 <img src="images/Close-Icon.svg" alt="Закрыть" class="popup__image-close">
             </button>
@@ -89,6 +107,9 @@
             </button>
         </div>
 </template>
-<script src="appJS/index.js"></script>
+<script src="appJS/index.js">
+
+</script>
+<script src="appJS/validate.js"></script>
 </body>
 </html>

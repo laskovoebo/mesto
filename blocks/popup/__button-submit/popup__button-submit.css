@@ -30,34 +30,9 @@
     }
 }
 
-.popup__button-submit2 {
-    display: flex;
-    border-radius: 2px;
-    margin-bottom: 37px;
-    width: 100%;
-    background-color: black;
-    height: 50px;
-    text-decoration: none;
-    color: white;
-    justify-content: center;
-    border: none;
-    padding: 0;
-    align-items: center;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.popup__button-submit2:hover {
-    opacity: 0.8;
-}
-
-@media (max-width: 767px) {
-    .popup__button-submit2 {
-        font-size: 14px;
-        line-height: 17px;
-    }
+.popup__button-submit_inactive {
+    color: #B8B8B8;
+    background: #EDEDED;
+    pointer-events: none;
+    user-select: none;
 }

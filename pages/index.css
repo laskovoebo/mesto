@@ -35,3 +35,7 @@
 @import "../blocks/popup/__content-box/popup__content-box.css";
 @import "../blocks/popup/__input/popup__input.css";
 @import "../blocks/popup/__container-image/popup__container_image.css";
+@import "../blocks/popup/__input-error/popup__error-message.css";
+@import "../blocks/popup/_active/popup__input-error_active.css";
+@import "../blocks/popup/__set/popup__set.css";
+@import "../blocks/popup/__field/popup__field.css";

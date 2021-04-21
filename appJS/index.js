@@ -13,8 +13,8 @@ const popupCards = document.querySelector('#cardsPopup');
 const buttonCloseCards = document.querySelector('#closeCards');
 const formCards = document.querySelector('#formCards');
 const buttonSaveCards = document.querySelector('#saveCards');
-const inputNameCards = document.querySelector('#nameCard');
-const inputLinkCards = document.querySelector('#linkCard');
+const inputNameCards = document.querySelector('#nameCard-input');
+const inputLinkCards = document.querySelector('#linkCard-input');
 const buttonDeleteCards = document.querySelector('.places__remove-card')
 const openPopupCards = document.querySelector('.profile__submit-button');
 const places = document.querySelector('.places');
@@ -57,6 +57,13 @@ function openPopup(popup) {
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+}
+
+const keyHandlerProfile = (evt) => {
+    const popupOpened = document.querySelector('.popup_opened');
+    if (evt.key === 'Escape' && popupOpened) {
+        closePopup(popupOpened);
+    }
 }
 
 function popupSubmitHandler (event) {
@@ -112,6 +119,12 @@ function formSubmitHandler(e) {
     closePopup(popupCards);
 }
 
+const closePopupOverlay = (evt) => {
+    const popupOverlay = document.querySelector('.popup_opened');
+    closePopup(popupOverlay);
+    evt.stopPropagation();
+}
+
 editButton.addEventListener('click', () => {
     firstName.value = profileTitle.textContent;
     popupParagraph.value = profileSubtitle.textContent;
@@ -120,6 +133,8 @@ editButton.addEventListener('click', () => {
 openPopupCards.addEventListener('click', () => {
     openPopup(popupCards);
 });
+
+document.addEventListener('keydown', keyHandlerProfile)
 
 buttonCloseProfile.addEventListener('click', () => {
     closePopup(popupProfile);
@@ -132,6 +147,10 @@ buttonCloseCards.addEventListener('click', () => {
 buttonImageClose.addEventListener('click', () => {
     popupImageCard.classList.remove('popup_opened');
 });
+
+popupCards.addEventListener('click' , closePopupOverlay);
+popupProfile.addEventListener('click' , closePopupOverlay);
+popupImageCard.addEventListener('click', closePopupOverlay);
 
 profileForm.addEventListener('submit', popupSubmitHandler);
 
