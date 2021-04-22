@@ -53,6 +53,13 @@ const imageName = document.querySelector('.popup__image-name');
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    const container = popup.querySelector('.popup__container');
+    container.addEventListener('click', e => {
+        e.stopPropagation();
+    });
+    popup.addEventListener('click', () => {
+        closePopup(popup);
+    });
 }
 
 function closePopup(popup) {
@@ -119,11 +126,11 @@ function formSubmitHandler(e) {
     closePopup(popupCards);
 }
 
-const closePopupOverlay = (evt) => {
-    const popupOverlay = document.querySelector('.popup_opened');
-    closePopup(popupOverlay);
-    evt.stopPropagation();
-}
+// const closePopupOverlay = (evt) => {
+//     evt.stopImmediatePropagation()
+//     const popupOverlay = document.querySelector('.popup_opened');
+//     closePopup(popupOverlay);
+// }
 
 editButton.addEventListener('click', () => {
     firstName.value = profileTitle.textContent;
@@ -148,9 +155,9 @@ buttonImageClose.addEventListener('click', () => {
     popupImageCard.classList.remove('popup_opened');
 });
 
-popupCards.addEventListener('click' , closePopupOverlay);
-popupProfile.addEventListener('click' , closePopupOverlay);
-popupImageCard.addEventListener('click', closePopupOverlay);
+// popupProfile.addEventListener('click', closePopupOverlay)
+// popupCards.addEventListener('click', closePopupOverlay)
+// popupImageCard.addEventListener('click', closePopupOverlay)
 
 profileForm.addEventListener('submit', popupSubmitHandler);
 

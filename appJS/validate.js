@@ -4,7 +4,7 @@ const selectorConfig = {
     inactiveButtonClass: 'popup__button-submit_inactive',
     submitButtonSelector: '.popup__button-submit',
     inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__input-error_active',
+    errorClass: 'popup__input-error-active',
     fieldClass: '.popup__set'
 };
 const showInputError = (formElement, inputElement, errorMessage) => {
