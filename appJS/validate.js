@@ -47,8 +47,7 @@ const enableValidation = (configParams) => {
         formElement.addEventListener('submit', function (evt) {
             evt.preventDefault();
         });
-        const fieldsetList = Array.from(formElement.querySelectorAll(configParams.fieldClass));
-        fieldsetList.forEach((fieldSet) => { setEventListeners(fieldSet) });
+        setEventListeners(formElement);
     });
 };
 

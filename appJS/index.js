@@ -18,6 +18,9 @@ const inputLinkCards = document.querySelector('#linkCard-input');
 const buttonDeleteCards = document.querySelector('.places__remove-card')
 const openPopupCards = document.querySelector('.profile__submit-button');
 const places = document.querySelector('.places');
+
+const popupImage = document.querySelector('#imageCardFullscreen');
+
 const initialCards = [
     {
         name: 'Архыз',
@@ -53,7 +56,6 @@ const imageName = document.querySelector('.popup__image-name');
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
-    closePopupOverlay(popup)
     document.addEventListener('keydown', keyHandlerProfile)
 }
 
@@ -87,7 +89,7 @@ function popupSubmitHandler (event) {
 }
 
 const placesTemplate = document.querySelector('.places__template')
-    .content.querySelector('.places__card');
+  .content.querySelector('.places__card');
 
 
 function createCard({ name, link }) {
@@ -132,6 +134,7 @@ function formSubmitHandler(e) {
     inputLinkCards.value = '';
     inputNameCards.value = '';
     closePopup(popupCards);
+    buttonSaveCards.classList.add(selectorConfig.inactiveButtonClass);
 }
 
 
@@ -144,16 +147,16 @@ openPopupCards.addEventListener('click', () => {
     openPopup(popupCards);
 });
 
-document.addEventListener('keydown', keyHandlerProfile)
-
 buttonCloseProfile.addEventListener('click', () => {
     closePopup(popupProfile);
 });
+
 buttonCloseCards.addEventListener('click', () => {
     inputLinkCards.value = '';
     inputNameCards.value = '';
     closePopup(popupCards);
 });
+
 buttonImageClose.addEventListener('click', () => {
     closePopup(popupImageCard);
 });
@@ -161,6 +164,8 @@ buttonImageClose.addEventListener('click', () => {
 profileForm.addEventListener('submit', popupSubmitHandler);
 
 formCards.addEventListener('submit', formSubmitHandler);
+
+[popupProfile, popupCards, popupImage].forEach(closePopupOverlay);
 
 renderCards();
 
