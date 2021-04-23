@@ -53,6 +53,11 @@ const imageName = document.querySelector('.popup__image-name');
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    closePopupOverlay(popup)
+    document.addEventListener('keydown', keyHandlerProfile)
+}
+
+const closePopupOverlay = (popup) => {
     const container = popup.querySelector('.popup__container');
     container.addEventListener('click', e => {
         e.stopPropagation();
@@ -64,6 +69,7 @@ function openPopup(popup) {
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', keyHandlerProfile)
 }
 
 const keyHandlerProfile = (evt) => {
@@ -80,9 +86,11 @@ function popupSubmitHandler (event) {
     closePopup(popupProfile);
 }
 
+const placesTemplate = document.querySelector('.places__template')
+    .content.querySelector('.places__card');
+
+
 function createCard({ name, link }) {
-    const placesTemplate = document.querySelector('.places__template')
-      .content.querySelector('.places__card');
     const cardWrapper = placesTemplate.cloneNode(true);
     const cardName = cardWrapper.querySelector('.places__title');
     const cardImage = cardWrapper.querySelector('.places__image');
@@ -95,7 +103,7 @@ function createCard({ name, link }) {
         imageCard.src = link;
         imageName.textContent = name;
         imageCard.alt = name;
-        popupImageCard.classList.add('popup_opened');
+        openPopup(popupImageCard);
     });
     closeButton.addEventListener('click', () => cardWrapper.remove());
     cardName.textContent = name;
@@ -126,11 +134,6 @@ function formSubmitHandler(e) {
     closePopup(popupCards);
 }
 
-// const closePopupOverlay = (evt) => {
-//     evt.stopImmediatePropagation()
-//     const popupOverlay = document.querySelector('.popup_opened');
-//     closePopup(popupOverlay);
-// }
 
 editButton.addEventListener('click', () => {
     firstName.value = profileTitle.textContent;
@@ -152,12 +155,8 @@ buttonCloseCards.addEventListener('click', () => {
     closePopup(popupCards);
 });
 buttonImageClose.addEventListener('click', () => {
-    popupImageCard.classList.remove('popup_opened');
+    closePopup(popupImageCard);
 });
-
-// popupProfile.addEventListener('click', closePopupOverlay)
-// popupCards.addEventListener('click', closePopupOverlay)
-// popupImageCard.addEventListener('click', closePopupOverlay)
 
 profileForm.addEventListener('submit', popupSubmitHandler);
 

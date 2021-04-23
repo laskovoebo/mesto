@@ -7,6 +7,7 @@ const selectorConfig = {
     errorClass: 'popup__input-error-active',
     fieldClass: '.popup__set'
 };
+
 const showInputError = (formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     errorElement.textContent = errorMessage;
@@ -39,13 +40,14 @@ const setEventListeners = (formElement) => {
     });
 };
 
-const enableValidation = () => {
-    const formList = Array.from(document.querySelectorAll(selectorConfig.formSelector));
+const enableValidation = (configParams) => {
+    Object.assign(selectorConfig, configParams);
+    const formList = Array.from(document.querySelectorAll(configParams.formSelector));
     formList.forEach((formElement) => {
         formElement.addEventListener('submit', function (evt) {
             evt.preventDefault();
         });
-        const fieldsetList = Array.from(formElement.querySelectorAll(selectorConfig.fieldClass));
+        const fieldsetList = Array.from(formElement.querySelectorAll(configParams.fieldClass));
         fieldsetList.forEach((fieldSet) => { setEventListeners(fieldSet) });
     });
 };
@@ -64,4 +66,12 @@ const toggleButtonState = (inputList, buttonElement) => {
     }
 }
 
-enableValidation(selectorConfig);
+enableValidation({
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    inactiveButtonClass: 'popup__button-submit_inactive',
+    submitButtonSelector: '.popup__button-submit',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error-active',
+    fieldClass: '.popup__set'
+});
