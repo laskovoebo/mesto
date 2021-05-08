@@ -1,0 +1,29 @@
+{
+  "name": "mesto-5",
+  "version": "1.0.0",
+  "description": "Ссылка на сайт: https://laskovoebo.github.io/mesto/ # Проект о местах России",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --mode development --progress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laskovoebo/mesto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laskovoebo/mesto/issues"
+  },
+  "homepage": "https://github.com/laskovoebo/mesto#readme",
+  "devDependencies": {
+    "css-loader": "^5.2.4",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
