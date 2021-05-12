@@ -67,7 +67,8 @@
                 <h2 class="popup__title">Новое Место</h2>
                     <label class="popup__field">
                 <input type="text" class="popup__input popup__input_text_name"
-                       id="nameCard-input" value="" name="inputNamePopup" placeholder="Название" required>
+                       id="nameCard-input" value="" name="inputNamePopup" placeholder="Название" required
+                       minlength="2">
                 <span class="popup__error-message nameCard-input-error popup__input-error-active"></span>
                     </label>
                     <label class="popup__field">
@@ -75,7 +76,7 @@
                        id="linkCard-input" value="" name="inputLinkPopup" placeholder="Ссылка на картинку" required>
                 <span class="popup__error-message linkCard-input-error"></span>
                     </label>
-                <button type="submit" class="popup__button-submit" id="saveCards">Сохранить</button>
+                <button type="submit" class="popup__button-submit popup__button-submit_inactive" id="saveCards">Сохранить</button>
                 </fieldset>
             </form>
 

@@ -1,5 +1,5 @@
-import { imageCard, popupImageCard, imageName } from './globals';
-import { openPopup } from "./index";
+import { imageCard, imageName, popupImageCard } from './selectors';
+import { openPopup } from './popup';
 
 class Card {
     _name;
