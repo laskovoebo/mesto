@@ -8,10 +8,18 @@ class FormValidator {
         fieldClass: '',
     };
     _formElement;
+    _inputList;
+    _buttonElement;
 
     constructor(config, element) {
         this._selectorConfig = config;
         this._formElement = element;
+        this._inputList = Array.from(
+            this._formElement.querySelectorAll(this._selectorConfig.inputSelector),
+        );
+        this._buttonElement = this._formElement.querySelector(
+            this._selectorConfig.submitButtonSelector,
+        );
     }
 
     _showInputError = (inputElement, errorMessage) => {
@@ -35,28 +43,28 @@ class FormValidator {
     };
 
     _setEventListeners = () => {
-        const inputList = Array.from(this._formElement.querySelectorAll(this._selectorConfig.inputSelector));
-        const buttonElement = this._formElement.querySelector(this._selectorConfig.submitButtonSelector);
-        this._toggleButtonState(inputList, buttonElement);
-        inputList.forEach((inputElement) => {
+        this._toggleButtonState();
+        this._inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._checkInputValidity(inputElement);
-                this._toggleButtonState(inputList, buttonElement);
+                this._toggleButtonState();
             });
         });
     };
 
-    _hasInvalidInput = inputList => {
-        return inputList.some((inputElement) => {
-            return !inputElement.validity.valid
-        })
+    _hasInvalidInput = inputList => inputList.some((inputElement) => !inputElement.validity.valid);
+
+    disableSubmitButton = () => {
+        this._buttonElement.disabled = true;
+        this._buttonElement.classList.add(this._selectorConfig.inactiveButtonClass);
     }
 
-    _toggleButtonState = (inputList, buttonElement) => {
-        if (this._hasInvalidInput(inputList)) {
-            buttonElement.classList.add(this._selectorConfig.inactiveButtonClass);
+    _toggleButtonState = () => {
+        if (this._hasInvalidInput(this._inputList)) {
+            this.disableSubmitButton();
         } else {
-            buttonElement.classList.remove(this._selectorConfig.inactiveButtonClass);
+            this._buttonElement.disabled = false;
+            this._buttonElement.classList.remove(this._selectorConfig.inactiveButtonClass);
         }
     }
 

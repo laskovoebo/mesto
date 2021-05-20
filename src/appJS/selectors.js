@@ -1,3 +1,8 @@
+/*
+Отлично
+
+Константы хранятся в отдельно файле
+*/
 export const imageName = document.querySelector('.popup__image-name');
 export const popupImageCard = document.querySelector('#imageCardFullscreen');
 export const imageCard = popupImageCard.querySelector('.popup__image-card');

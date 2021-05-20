@@ -1,4 +1,11 @@
 import { imageCard, imageName, popupImageCard } from './selectors';
+/* 
+Отлично
+
+В классе Card используется импортированная функция openPopup, 
+а не создаётся новая внутри класса
+
+*/
 import { openPopup } from './popup';
 
 class Card {

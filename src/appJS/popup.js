@@ -1,7 +1,17 @@
 const keyHandlerProfile = (evt) => {
-    const popupOpened = document.querySelector('.popup_opened');
-    if (evt.key === 'Escape' && popupOpened) {
-        closePopup(popupOpened);
+    /*
+
+    Можно лучше
+
+    Поиск элемента открытого модального окна лучше перенести внутрь блока if,
+    так как этот элемент нужен только тогда, когда условие if истинно
+
+    */
+    if (evt.key === 'Escape') {
+        const popupOpened = document.querySelector('.popup_opened');
+        if (popupOpened) {
+            closePopup(popupOpened);
+        }
     }
 }
 

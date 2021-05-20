@@ -13,9 +13,16 @@ import {
     editButton,
     openPopupCards,
     buttonCloseProfile,
-    buttonCloseCards, buttonImageClose, popupImageCard, profileForm, formCards, popupImage, placesTemplate,
+    buttonCloseCards,
+    buttonImageClose,
+    popupImageCard,
+    profileForm,
+    formCards,
+    popupImage,
+    placesTemplate,
 } from './selectors';
 import { closePopup, closePopupOverlay, openPopup } from './popup';
+import { CARDS_FORM, PROFILE_FORM } from './constants';
 
 const initialCards = [
     {
@@ -44,37 +51,35 @@ const initialCards = [
     }
 ];
 
-function popupSubmitHandler (event) {
+const createCard = (name, link) =>
+    (new Card(name, link, placesTemplate)).createCard();
+
+function popupSubmitHandler(event) {
     event.preventDefault();
-    if (firstName.validity.valid && popupParagraph.validity.valid) {
-        profileTitle.textContent = firstName.value;
-        profileSubtitle.textContent = popupParagraph.value;
-        closePopup(popupProfile);
-    }
-    return false;
+    profileTitle.textContent = firstName.value;
+    profileSubtitle.textContent = popupParagraph.value;
+    closePopup(popupProfile);
 }
 
 function formSubmitHandler(e) {
     e.preventDefault();
     const name = inputNameCards.value;
     const link = inputLinkCards.value;
-    if (inputLinkCards.validity.valid && inputLinkCards.validity.valid) {
-        const newCard = new Card(name, link, placesTemplate);
-        places.prepend(newCard.createCard())
-        inputLinkCards.value = '';
-        inputNameCards.value = '';
-        closePopup(popupCards);
-    }
-    return false;
+    places.prepend(createCard(name, link));
+    inputLinkCards.value = '';
+    inputNameCards.value = '';
+    closePopup(popupCards);
 }
 
 editButton.addEventListener('click', () => {
     firstName.value = profileTitle.textContent;
     popupParagraph.value = profileSubtitle.textContent;
+    formValidators[PROFILE_FORM].disableSubmitButton();
     openPopup(popupProfile);
 });
 
 openPopupCards.addEventListener('click', () => {
+    formValidators[CARDS_FORM].disableSubmitButton();
     openPopup(popupCards);
 });
 
@@ -98,22 +103,27 @@ formCards.addEventListener('submit', formSubmitHandler);
 
 [popupProfile, popupCards, popupImage].forEach(closePopupOverlay);
 
-const newCards = initialCards.map(({ name, link }) =>
-  new Card(name, link, placesTemplate));
+initialCards.forEach(
+    ({ name, link }) =>
+        places.prepend(createCard(name, link))
+);
 
-newCards.forEach(card => places.prepend(card.createCard()));
+const formValidators = {
+    [PROFILE_FORM]: null,
+    [CARDS_FORM]: null,
+};
 
-['#formProfile', '#formCards']
-  .forEach(
-    selector => (new FormValidator({
-        inputSelector: '.popup__input',
-        inactiveButtonClass: 'popup__button-submit_inactive',
-        submitButtonSelector: '.popup__button-submit',
-        inputErrorClass: 'popup__input_type_error',
-        errorClass: 'popup__input-error-active',
-        fieldClass: '.popup__set',
-    },
-      document.querySelector(selector),
-    ))
-      .enableValidation()
-  );
+Object.keys(formValidators).forEach(selector => {
+    formValidators[selector] = new FormValidator({
+            inputSelector: '.popup__input',
+            inactiveButtonClass: 'popup__button-submit_inactive',
+            submitButtonSelector: '.popup__button-submit',
+            inputErrorClass: 'popup__input_type_error',
+            errorClass: 'popup__input-error-active',
+            fieldClass: '.popup__set',
+        },
+        document.querySelector(selector),
+    );
+    formValidators[selector].enableValidation();
+});
+
