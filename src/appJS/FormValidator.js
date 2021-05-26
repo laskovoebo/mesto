@@ -34,6 +34,11 @@ class FormValidator {
         errorElement.textContent = " ";
     }
 
+    cleanFormValidation() {
+        this._inputList.forEach(this._hideInputError)
+        this.disableSubmitButton()
+    }
+
     _checkInputValidity = inputElement => {
         if (!inputElement.validity.valid) {
             this._showInputError(inputElement, inputElement.validationMessage);
@@ -58,6 +63,7 @@ class FormValidator {
         this._buttonElement.disabled = true;
         this._buttonElement.classList.add(this._selectorConfig.inactiveButtonClass);
     }
+
 
     _toggleButtonState = () => {
         if (this._hasInvalidInput(this._inputList)) {

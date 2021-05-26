@@ -1,4 +1,7 @@
+import Section from "./Section";
 import Card from './Card';
+import PopupWithForm from './PopupWithForm';
+
 import FormValidator from './FormValidator';
 import {
     firstName,
@@ -21,8 +24,8 @@ import {
     popupImage,
     placesTemplate,
 } from './selectors';
-import { closePopup, closePopupOverlay, openPopup } from './popup';
 import { CARDS_FORM, PROFILE_FORM } from './constants';
+import UserInfo from "./UserInfo";
 
 const initialCards = [
     {
@@ -51,62 +54,49 @@ const initialCards = [
     }
 ];
 
-const createCard = (name, link) =>
-    (new Card(name, link, placesTemplate)).createCard();
+const defaultCardList = new Section({
+    items: initialCards,
+    renderer: ({ name, link }) => {
+        return (new Card(name, link, placesTemplate)).createCard();
+    }
+}, places);
+defaultCardList.renderItems();
 
-function popupSubmitHandler(event) {
-    event.preventDefault();
-    profileTitle.textContent = firstName.value;
-    profileSubtitle.textContent = popupParagraph.value;
-    closePopup(popupProfile);
+const createCard = (name, link) => (new Card(name, link, placesTemplate)).createCard();
+
+
+editButton.addEventListener('click', handleOpenEditProfileClick);
+
+function handleOpenEditProfileClick() {
+    formValidators[PROFILE_FORM].cleanFormValidation()
+    popupEditProfile.openPopup()
+    const userData = userInfo.getUserInfo()
+    firstName.value = userData.name
+    popupParagraph.value = userData.description
 }
-
-function formSubmitHandler(e) {
-    e.preventDefault();
-    const name = inputNameCards.value;
-    const link = inputLinkCards.value;
-    places.prepend(createCard(name, link));
-    inputLinkCards.value = '';
-    inputNameCards.value = '';
-    closePopup(popupCards);
-}
-
-editButton.addEventListener('click', () => {
-    firstName.value = profileTitle.textContent;
-    popupParagraph.value = profileSubtitle.textContent;
-    formValidators[PROFILE_FORM].disableSubmitButton();
-    openPopup(popupProfile);
-});
 
 openPopupCards.addEventListener('click', () => {
-    formValidators[CARDS_FORM].disableSubmitButton();
-    openPopup(popupCards);
+    formValidators[CARDS_FORM].cleanFormValidation()
+    popupAddCard.openPopup()
 });
 
-buttonCloseProfile.addEventListener('click', () => {
-    closePopup(popupProfile);
-});
+const popupAddCard = new PopupWithForm('#cardsPopup', (data) => {
+    const card = createCard(data.inputNamePopup, data.inputLinkPopup)
+    places.prepend(card);
+    popupAddCard.closePopup()
+})
+popupAddCard.setEventListeners()
 
-buttonCloseCards.addEventListener('click', () => {
-    inputLinkCards.value = '';
-    inputNameCards.value = '';
-    closePopup(popupCards);
-});
+const popupEditProfile = new PopupWithForm('#profilePopup', (data) => {
+    console.log(data)
 
-buttonImageClose.addEventListener('click', () => {
-    closePopup(popupImageCard);
-});
+    userInfo.setUserInfo(data.inputFirstnamePopup, data.inputParagraphPopup)
 
-profileForm.addEventListener('submit', popupSubmitHandler);
+    popupEditProfile.closePopup()
+})
+popupEditProfile.setEventListeners()
 
-formCards.addEventListener('submit', formSubmitHandler);
-
-[popupProfile, popupCards, popupImage].forEach(closePopupOverlay);
-
-initialCards.forEach(
-    ({ name, link }) =>
-        places.prepend(createCard(name, link))
-);
+const userInfo = new UserInfo({name: '.profile__title', description: '.profile__subtitle'})
 
 const formValidators = {
     [PROFILE_FORM]: null,
@@ -115,15 +105,16 @@ const formValidators = {
 
 Object.keys(formValidators).forEach(selector => {
     formValidators[selector] = new FormValidator({
-            inputSelector: '.popup__input',
-            inactiveButtonClass: 'popup__button-submit_inactive',
-            submitButtonSelector: '.popup__button-submit',
-            inputErrorClass: 'popup__input_type_error',
-            errorClass: 'popup__input-error-active',
-            fieldClass: '.popup__set',
-        },
+        inputSelector: '.popup__input',
+        inactiveButtonClass: 'popup__button-submit_inactive',
+        submitButtonSelector: '.popup__button-submit',
+        inputErrorClass: 'popup__input_type_error',
+        errorClass: 'popup__input-error-active',
+        fieldClass: '.popup__set',
+    },
         document.querySelector(selector),
     );
     formValidators[selector].enableValidation();
 });
+
 

@@ -6,6 +6,7 @@ module.exports = {
     filename: 'bundle.js',  // Name of generated bundle after build
     publicPath: '/' // public URL of the output directory when referenced in a browser
   },
+  devtool: 'cheap-module-source-map',
   module: {  // where we defined file patterns and their loaders
     rules: [
       {

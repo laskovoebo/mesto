@@ -31,6 +31,7 @@ export const openPopupCards = document.querySelector('.profile__submit-button');
 export const places = document.querySelector('.places');
 
 export const popupImage = document.querySelector('#imageCardFullscreen');
+export const buttonClose = document.querySelector('.popup__button-close');
 
 export const placesTemplate = document.querySelector('.places__template')
     .content.querySelector('.places__card');

@@ -1,36 +1,38 @@
-const keyHandlerProfile = (evt) => {
-    /*
 
-    Можно лучше
-
-    Поиск элемента открытого модального окна лучше перенести внутрь блока if,
-    так как этот элемент нужен только тогда, когда условие if истинно
-
-    */
-    if (evt.key === 'Escape') {
-        const popupOpened = document.querySelector('.popup_opened');
-        if (popupOpened) {
-            closePopup(popupOpened);
-        }
+export default class Popup {
+    constructor(popupSelector) {
+        this._popup = document.querySelector(popupSelector);
     }
-}
 
-export const openPopup = popup => {
-    popup.classList.add('popup_opened');
-    document.addEventListener('keydown', keyHandlerProfile)
-}
+    openPopup() {
+        this._popup.classList.add('popup_opened');
+    }
 
-export const closePopupOverlay = popup => {
-    const container = popup.querySelector('.popup__container');
-    container.addEventListener('click', e => {
-        e.stopPropagation();
-    });
-    popup.addEventListener('click', () => {
-        closePopup(popup);
-    });
-}
+    closePopupOverlay() {
+        const container = this._popup.querySelector('.popup__container');
+        container.addEventListener('click', e => {
+            e.stopPropagation();
+        });
+        this._popup.addEventListener('click', () => {
+            this.closePopup( this._popup );
+        });
+    }
 
-export const closePopup = popup => {
-    popup.classList.remove('popup_opened');
-    document.removeEventListener('keydown', keyHandlerProfile)
+    closePopup() {
+        this._popup.classList.remove('popup_opened');
+        document.removeEventListener('keydown', this._keyHandlerProfile)
+    }
+
+    _keyHandlerProfile = evt => {
+        if (evt.key === 'Escape') {
+            const popupOpened = document.querySelector('.popup_opened');
+            if (popupOpened) {
+                this.closePopup(popupOpened);
+            }
+        }
+    };
+
+    setEventListeners() {
+        this._popup.querySelector('.popup__button-close').addEventListener('click', () => this.closePopup())
+    }
 }

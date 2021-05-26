@@ -1,12 +1,4 @@
 import { imageCard, imageName, popupImageCard } from './selectors';
-/* 
-Отлично
-
-В классе Card используется импортированная функция openPopup, 
-а не создаётся новая внутри класса
-
-*/
-import { openPopup } from './popup';
 
 class Card {
     _name;
@@ -28,7 +20,7 @@ class Card {
         imageCard.src = this._link;
         imageName.textContent = this._name;
         imageCard.alt = this._name;
-        openPopup(popupImageCard);
+        openPopups(popups.image);
     }
 
     _handleClose = () => {
