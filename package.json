@@ -4,8 +4,8 @@
   "description": "Ссылка на сайт: https://laskovoebo.github.io/mesto/ # Проект о местах России",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --mode development --progress"
+    "build": "rimraf dist && webpack",
+    "dev": "webpack serve --mode development --progress"
   },
   "repository": {
     "type": "git",
@@ -18,12 +18,22 @@
   },
   "homepage": "https://github.com/laskovoebo/mesto#readme",
   "devDependencies": {
-    "css-loader": "^5.2.4",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "autoprefixer": "^10.2.6",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.6",
+    "cssnano": "^5.0.4",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
-    "style-loader": "^2.0.0",
+    "mini-css-extract-plugin": "^1.6.0",
+    "postcss-loader": "^5.3.0",
+    "rimraf": "^3.0.2",
     "webpack": "^5.36.2",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "core-js": "^3.13.0"
   }
 }

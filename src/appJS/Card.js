@@ -1,26 +1,19 @@
-import { imageCard, imageName, popupImageCard } from './selectors';
-
 class Card {
     _name;
     _link;
     _cardWrapper;
+    _handleCardClick;
 
-    constructor(name, link, htmlTemplate) {
+    constructor(name, link, htmlTemplate, handleCardClick) {
         this._name = name;
         this._link = link;
         this._cardWrapper = htmlTemplate.cloneNode(true);
+        this._handleCardClick = handleCardClick;
     }
 
     _handleLike = () => {
         const likeButton = this._cardWrapper.querySelector('.places__button-like');
         likeButton.classList.toggle('like_active');
-    }
-
-    _handleOpen = () => {
-        imageCard.src = this._link;
-        imageName.textContent = this._name;
-        imageCard.alt = this._name;
-        openPopups(popups.image);
     }
 
     _handleClose = () => {
@@ -34,7 +27,7 @@ class Card {
         const imageContainer = this._cardWrapper.querySelector('.places__image');
         const closeButton = this._cardWrapper.querySelector('.places__image-remove');
         likeButton.addEventListener('click',this._handleLike);
-        imageContainer.addEventListener('click', this._handleOpen);
+        imageContainer.addEventListener('click', this._handleCardClick);
         closeButton.addEventListener('click', this._handleClose);
         cardName.textContent = this._name;
         cardImage.src = this._link;

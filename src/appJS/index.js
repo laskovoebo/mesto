@@ -1,3 +1,4 @@
+import '../public/styles/index.css'
 import Section from "./Section";
 import Card from './Card';
 import PopupWithForm from './PopupWithForm';
@@ -6,26 +7,15 @@ import FormValidator from './FormValidator';
 import {
     firstName,
     popupParagraph,
-    popupProfile,
-    profileSubtitle,
-    profileTitle,
-    inputNameCards,
-    inputLinkCards,
     places,
-    popupCards,
     editButton,
     openPopupCards,
-    buttonCloseProfile,
-    buttonCloseCards,
-    buttonImageClose,
-    popupImageCard,
-    profileForm,
-    formCards,
-    popupImage,
     placesTemplate,
 } from './selectors';
 import { CARDS_FORM, PROFILE_FORM } from './constants';
 import UserInfo from "./UserInfo";
+import PopupWithImage from "./PopupWithImage";
+import '../public/styles/index.css';
 
 const initialCards = [
     {
@@ -53,17 +43,19 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
+const imagePopup = new PopupWithImage('#imageCardFullscreen');
+imagePopup.setEventListeners();
+
+const createCard = (name, link) =>
+    (new Card(name, link, placesTemplate, () => {
+        imagePopup.openPopup(name, link);
+    })).createCard();
 
 const defaultCardList = new Section({
     items: initialCards,
-    renderer: ({ name, link }) => {
-        return (new Card(name, link, placesTemplate)).createCard();
-    }
+    renderer: ({ name, link }) => createCard(name, link),
 }, places);
 defaultCardList.renderItems();
-
-const createCard = (name, link) => (new Card(name, link, placesTemplate)).createCard();
-
 
 editButton.addEventListener('click', handleOpenEditProfileClick);
 
@@ -88,10 +80,7 @@ const popupAddCard = new PopupWithForm('#cardsPopup', (data) => {
 popupAddCard.setEventListeners()
 
 const popupEditProfile = new PopupWithForm('#profilePopup', (data) => {
-    console.log(data)
-
     userInfo.setUserInfo(data.inputFirstnamePopup, data.inputParagraphPopup)
-
     popupEditProfile.closePopup()
 })
 popupEditProfile.setEventListeners()
@@ -116,5 +105,3 @@ Object.keys(formValidators).forEach(selector => {
     );
     formValidators[selector].enableValidation();
 });
-
-

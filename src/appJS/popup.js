@@ -6,6 +6,8 @@ export default class Popup {
 
     openPopup() {
         this._popup.classList.add('popup_opened');
+        document.addEventListener('keydown', this._keyHandlerProfile);
+        this.closePopupOverlay()
     }
 
     closePopupOverlay() {

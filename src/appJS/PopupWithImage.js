@@ -1,16 +1,11 @@
 import Popup from "./popup";
 import {imageCard, imageName} from "./selectors";
 
-class PopupWithImage extends Popup {
-    constructor(popup) {
-        super();
-    }
-
-    openPopup() {
+export default class PopupWithImage extends Popup {
+    openPopup(name, link) {
+        imageCard.src = link;
+        imageName.textContent = name;
+        imageCard.alt = name;
         super.openPopup();
-        imageCard.src = this._link;
-        imageName.textContent = this._name;
-        imageCard.alt = this._name;
     }
-
 }
