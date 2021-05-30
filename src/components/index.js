@@ -74,7 +74,7 @@ openPopupCards.addEventListener('click', () => {
 
 const popupAddCard = new PopupWithForm('#cardsPopup', (data) => {
     const card = createCard(data.inputNamePopup, data.inputLinkPopup)
-    places.prepend(card);
+    defaultCardList.setItem(card);
     popupAddCard.closePopup()
 })
 popupAddCard.setEventListeners()
