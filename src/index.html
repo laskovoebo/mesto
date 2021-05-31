@@ -15,18 +15,18 @@
     </header>
     <main>
         <section class="profile">
-            <img src="images/image-profile.jpg" alt="Аватар профиля" class="profile__image">
+            <img src="./images/image-profile.jpg" alt="Аватар профиля" class="profile__image">
             <div class="profile__info">
                 <div class="profile__paragraph">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
                     <p class="profile__subtitle">Исследователь океана</p>
                 </div>
                 <button class="profile__edit-button">
-                    <img src="images/edit-button-vector.svg" alt="Редактировать профиль" class="profile__image-edit">
+                    <img src="./images/edit-button-vector.svg" alt="Редактировать профиль" class="profile__image-edit">
                 </button>
             </div>
             <button class="profile__submit-button">
-                <img src="images/plus.svg" alt="Добавить изображение" class="profile__image-submit">
+                <img src="./images/plus.svg" alt="Добавить изображение" class="profile__image-submit">
             </button>
         </section>
         <section class="places"></section>
@@ -41,7 +41,7 @@
                 <h2 class="popup__title">Редактировать профиль</h2>
                     <label class="popup__field">
                 <input type="text" class="popup__input popup__input_text_firstname"
-                       id="firstname-input" value="Жак-Ив Кусто22" name="inputFirstnamePopup"
+                       id="firstname-input" value="Жак-Ив Кусто" name="inputFirstnamePopup"
                        placeholder="Имя" required maxlength="40" minlength="2">
                 <span class="popup__error-message firstname-input-error"></span>
                     </label>
@@ -55,7 +55,7 @@
                 </fieldset>
             </form>
             <button class="popup__button-close" id="closeProfile">
-                <img src="images/Close-Icon.svg" alt="Закрыть" class="popup__image-close">
+                <img src="./images/Close-Icon.svg" alt="Закрыть" class="popup__image-close">
             </button>
         </div>
     </div>
@@ -80,7 +80,7 @@
             </form>
 
             <button class="popup__button-close" id="closeCards">
-                <img src="images/Close-Icon.svg" alt="Закрыть" class="popup__image-close">
+                <img src="./images/Close-Icon.svg" alt="Закрыть" class="popup__image-close">
             </button>
         </div>
     </div>
@@ -89,21 +89,21 @@
             <img src=" " alt="Изображение места" class="popup__image-card">
             <p class="popup__image-name"></p>
             <button class="popup__button-close" id="imageClose">
-                <img src="images/Close-Icon.svg" alt="Закрыть" class="popup__image-close">
+                <img src="./images/Close-Icon.svg" alt="Закрыть" class="popup__image-close">
             </button>
         </div>
     </div>
 </div>
 <template class="places__template">
         <div class="places__card">
-            <img src="images/kirill-pershin-1088404-unsplash.jpg" alt="Фото" class="places__image">
+            <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Фото" class="places__image">
             <div class="places__content">
                 <h2 class="places__title">Карачаевск</h2>
                 <div class="places__button-like">
                 </div>
             </div>
             <button class="places__remove-card">
-                <img src="images/Trash.svg" alt="Удалить карточку" class="places__image-remove">
+                <img src="./images/Trash.svg" alt="Удалить карточку" class="places__image-remove">
             </button>
         </div>
 </template>

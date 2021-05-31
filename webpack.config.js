@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // Require  html-webpack-plugin plugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
-  entry: __dirname + "/src/components/index.js", // webpack entry point. Module to start building dependency graph
+  entry: __dirname + "/src/pages/index.js", // webpack entry point. Module to start building dependency graph
   output: {
     path: __dirname + '/dist', // Folder to store generated bundle
     filename: 'bundle.js',  // Name of generated bundle after build
@@ -27,7 +27,7 @@ module.exports = {
             ]
         },
       {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
             loader: 'file-loader',
@@ -39,6 +39,18 @@ module.exports = {
         ]
       },
         {
+            test: /\.(png|svg|jpg)$/,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'images/'
+                    }
+                }
+            ]
+        },
+        {
           test: /\.js$/,
           use: 'babel-loader',
           exclude: '/node_modules/'
@@ -47,7 +59,7 @@ module.exports = {
   },
   plugins: [  // Array of plugins to apply to build chunk
     new HtmlWebpackPlugin({
-      template: __dirname + "/src/public/index.html",
+      template: __dirname + "/src/index.html",
       inject: 'body'
     }),
       new MiniCssExtractPlugin()

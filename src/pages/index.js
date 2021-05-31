@@ -1,9 +1,16 @@
-import '../public/styles/index.css'
-import Section from "./Section";
-import Card from './Card';
-import PopupWithForm from './PopupWithForm';
+import './index.css'
+import '../public/images/plus.svg'
+import '../public/images/Close-Icon.svg'
+import '../public/images/Trash.svg'
+import '../public/images/image-profile.jpg'
+import '../public/images/edit-button-vector.svg'
+import '../public/images/plus.svg'
 
-import FormValidator from './FormValidator';
+import Section from "../components/Section";
+import Card from '../components/Card';
+import PopupWithForm from '../components/PopupWithForm';
+
+import FormValidator from '../components/FormValidator';
 import {
     firstName,
     popupParagraph,
@@ -11,11 +18,11 @@ import {
     editButton,
     openPopupCards,
     placesTemplate,
-} from './selectors';
-import { CARDS_FORM, PROFILE_FORM } from './constants';
-import UserInfo from "./UserInfo";
-import PopupWithImage from "./PopupWithImage";
-import '../public/styles/index.css';
+} from '../components/selectors';
+import { CARDS_FORM, PROFILE_FORM } from '../components/constants';
+import UserInfo from "../components/UserInfo";
+import PopupWithImage from "../components/PopupWithImage";
+import './index.css';
 
 const initialCards = [
     {
